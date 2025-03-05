@@ -157,6 +157,7 @@ export async function getBlogEntries(locale: Locale): Promise<StarlightBlogEntry
   return blogEntries
 }
 
+// DEPRECATED. Use getBlogEntryPreviewContent() instead.
 export async function getBlogEntryExcerpt(entry: StarlightBlogEntry) {
   if (entry.data.excerpt) {
     return entry.data.excerpt
@@ -165,6 +166,23 @@ export async function getBlogEntryExcerpt(entry: StarlightBlogEntry) {
   const { Content } = await render(entry)
 
   return Content
+}
+
+// return either { excerpt: Markdown Text, summary: Markdown Text } or { Content: rendered content }
+export async function getBlogEntryPreviewContent(entry: StarlightBlogEntry) {
+  // There has got to be a better way than explicitly checking for a value first.
+  const summary = entry.data.summary ? { summary: entry.data.summary } : {}
+  const excerpt = entry.data.excerpt ? { excerpt: entry.data.excerpt } : {}
+  let matching = { ...summary, ...excerpt }
+
+  // I can't believe that this is what it takes to test whether an object is empty/has no keys.
+  if (Object.keys(matching).length === 0) {
+    const { Content } = await render(entry)
+    return Content
+  }
+  else {
+    return matching
+  }
 }
 
 function getBlogStaticPath(

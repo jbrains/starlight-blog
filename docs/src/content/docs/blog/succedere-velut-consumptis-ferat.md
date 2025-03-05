@@ -2,6 +2,7 @@
 title: Succedere velut consumptis ferat
 date: 2020-12-30
 draft: true
+summary: This is a summary instead of an excerpt.
 excerpt: Donec aliquam, nunc sed consectetur porta, nibh odio convallis dolor, ut auctor risus augue ac ligula. Ut blandit tempus nulla eget congue. Aliquam id dapibus diam, quis aliquam nulla. Morbi mollis tincidunt urna, sodales facilisis libero molestie sed. Nunc sed dignissim orci, id tempor ligula. Nullam erat augue, sodales eget sollicitudin eget, pulvinar in lectus. Fusce ac sapien tellus. Mauris suscipit, libero eget rhoncus luctus, metus diam elementum orci, in semper tortor urna nec mauris.
 tags:
   - WIP

@@ -33,10 +33,12 @@ export const blogEntrySchema = ({ image }: SchemaContext) =>
      */
     date: z.date(),
     /**
-     * The excerpt of the blog post used in the blog post list and tags pages.
-     * If not provided, the entire blog post content will be rendered.
+     * An excerpt and/or a summary of the blog post used in the blog post list and tags pages.
+     * An excerpt should be rendered to look like a quote, whereas a summary should be
+     * rendered to look like alternative content to the entire blog post.
      */
     excerpt: z.string().optional(),
+    summary: z.string().optional(),
     /**
      * A list of tags associated with the blog post.
      */
